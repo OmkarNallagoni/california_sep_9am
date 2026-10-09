@@ -1,0 +1,368 @@
+/* ------------------------------
+   Global
+------------------------------ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef2ff,
+            #f8fafc
+        );
+
+    color: #1e293b;
+
+    padding: 40px 20px;
+}
+
+
+/* ------------------------------
+   Main Container
+------------------------------ */
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+
+    margin: auto;
+}
+
+
+/* ------------------------------
+   Header
+------------------------------ */
+
+.header {
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+.icon {
+    width: 70px;
+    height: 70px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background: #4f46e5;
+
+    font-size: 34px;
+
+    box-shadow:
+        0 10px 25px rgba(79, 70, 229, 0.25);
+}
+
+.header h1 {
+    font-size: 36px;
+
+    font-weight: 700;
+
+    color: #111827;
+
+    margin-bottom: 10px;
+}
+
+.header p {
+    color: #64748b;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+}
+
+
+/* ------------------------------
+   Card
+------------------------------ */
+
+.card {
+    background: #ffffff;
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 20px 50px rgba(15, 23, 42, 0.08);
+
+    border: 1px solid #e2e8f0;
+}
+
+
+/* ------------------------------
+   Form Grid
+------------------------------ */
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 22px;
+}
+
+
+/* ------------------------------
+   Input
+------------------------------ */
+
+.input-group {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.input-group label {
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #334155;
+
+    margin-bottom: 8px;
+}
+
+.input-group input {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    font-size: 15px;
+
+    color: #1e293b;
+
+    background: #f8fafc;
+
+    transition: all 0.2s ease;
+}
+
+.input-group input::placeholder {
+    color: #94a3b8;
+}
+
+.input-group input:focus {
+    border-color: #4f46e5;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+
+/* ------------------------------
+   Predict Button
+------------------------------ */
+
+.predict-btn {
+    width: 100%;
+
+    margin-top: 30px;
+
+    padding: 15px 20px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #4f46e5;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    transition: all 0.25s ease;
+}
+
+.predict-btn:hover {
+    background: #4338ca;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 20px rgba(79, 70, 229, 0.25);
+}
+
+.predict-btn:active {
+    transform: translateY(0);
+}
+
+.arrow {
+    font-size: 20px;
+}
+
+
+/* ------------------------------
+   Result
+------------------------------ */
+
+.result {
+    margin-top: 30px;
+
+    padding: 22px;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+}
+
+
+/* Success */
+
+.success {
+    background: #ecfdf5;
+
+    border: 1px solid #a7f3d0;
+}
+
+.result-icon {
+    width: 50px;
+    height: 50px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #10b981;
+
+    color: white;
+
+    font-size: 25px;
+
+    font-weight: bold;
+}
+
+.result-title {
+    font-size: 14px;
+
+    color: #047857;
+
+    margin-bottom: 5px;
+}
+
+.result h2 {
+    font-size: 30px;
+
+    color: #065f46;
+}
+
+
+/* ------------------------------
+   Error
+------------------------------ */
+
+.error {
+    display: block;
+
+    background: #fef2f2;
+
+    border: 1px solid #fecaca;
+
+    color: #991b1b;
+}
+
+.error strong {
+    display: block;
+
+    margin-bottom: 5px;
+}
+
+.error p {
+    font-size: 14px;
+}
+
+
+/* ------------------------------
+   Footer
+------------------------------ */
+
+.footer {
+    text-align: center;
+
+    margin-top: 25px;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+.footer p {
+    margin-bottom: 5px;
+
+    font-weight: 600;
+}
+
+.footer span {
+    color: #94a3b8;
+}
+
+
+/* ------------------------------
+   Responsive
+------------------------------ */
+
+@media (max-width: 700px) {
+
+    body {
+        padding: 25px 15px;
+    }
+
+    .header h1 {
+        font-size: 28px;
+    }
+
+    .card {
+        padding: 22px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .result h2 {
+        font-size: 24px;
+    }
+}

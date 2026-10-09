@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>California House Price Prediction</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Header -->
+        <div class="header">
+
+            <div class="icon">
+                🏠
+            </div>
+
+            <h1>California House Price</h1>
+
+            <p>
+                Enter the house details below to estimate
+                the median house value.
+            </p>
+
+        </div>
+
+
+        <!-- Prediction Card -->
+        <div class="card">
+
+            <form action="{{ url_for('predict') }}"
+                  method="POST">
+
+                <div class="form-grid">
+
+                    {% for column in columns %}
+
+                    <div class="input-group">
+
+                        <label for="{{ column }}">
+                            {{ column.replace("_", " ").title() }}
+                        </label>
+
+                        <input
+                            type="number"
+                            step="any"
+                            id="{{ column }}"
+                            name="{{ column }}"
+                            placeholder="Enter {{ column.replace("_", " ").lower() }}"
+                            required
+                            {% if values %}
+                                value="{{ values.get(column, '') }}"
+                            {% endif %}
+                        >
+
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+
+
+                <!-- Button -->
+                <button type="submit" class="predict-btn">
+
+                    <span>Predict House Price</span>
+
+                    <span class="arrow">→</span>
+
+                </button>
+
+            </form>
+
+
+            <!-- Prediction Result -->
+
+            {% if prediction is defined %}
+
+            <div class="result success">
+
+                <div class="result-icon">
+                    ✓
+                </div>
+
+                <div>
+
+                    <p class="result-title">
+                        Estimated House Value
+                    </p>
+
+                    <h2>
+                        ${{ prediction }}
+                    </h2>
+
+                </div>
+
+            </div>
+
+            {% endif %}
+
+
+            <!-- Error -->
+
+            {% if error %}
+
+            <div class="result error">
+
+                <strong>Something went wrong</strong>
+
+                <p>{{ error }}</p>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+
+        <!-- Footer -->
+
+        <div class="footer">
+
+            <p>
+                California House Price Prediction
+            </p>
+
+            <span>
+                Powered by Flask & Machine Learning
+            </span>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
